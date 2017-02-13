@@ -1,0 +1,38 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\hrulefill{}
+
+Feb 3, 2017
+
+\vspace{3mm}
+
+To avoid cases where $f'$ is not multiply differentiable, assume $f\in C^\infty$.
+
+Assume that $u$ is a hyperbolic equilibrium at $\mu = \mu_0$ ($f(u_0, \mu_0) = 0$, $f_u(u_0, \mu_0 \neq 0)$)
+
+What happens when $\mu$ is changed to a new $\mu_0$?
+
+Since $f \in C^\infty$, there are equilibria near $\mu_0$.
+
+\subsubsection{Implicit Function Theorem (IFT)}
+Assume that $f(u, \mu) \in C\infty$ with $f(u_0, \mu_0) = 0$, $f_u(u_0, \mu_0) \neq 0$. Then there are open intervals I and J with $\mu_0 \in I$, $v_0 \in J$ and a unique function $g : I \mapsto J$ with $g(\mu_0) = u_0$ such that $f(u, \mu) = 0$ for $(u, \mu) \in J\times I$ if, and only if, $u = g(\mu)$. Furthermore, $g\in C\infty$.
+
+Example:
+
+$$f(u, \mu) = u + \mu(\sin{u}e^{-u} + u^5 - u^{1000})$$
+
+Can we solve $f(u, \mu) =$ for $(u, \mu) \approx 0$?
+
+Can't really solve for $u$ or $\mu$, so what can we do? Use theorem:
+
+\begin{itemize}
+    \item $f\in C^\infty$
+    \item $f(0, 0) = 0 \implies u_0 = 0, \mu_0 = 0$
+    \item $f_u(0, 0) = 1$
+\end{itemize}
+
+Therefore, there exists a unique $g = g(\mu)$ such that $f(u, \mu) = 0$ for $(u, \mu) \approx (0, 0)$ if and only if $u = g(\mu)$. Therefore, there is a unique solution near $\mu = 0$.
+
+\end{document}

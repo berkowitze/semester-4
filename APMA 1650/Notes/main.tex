@@ -1,0 +1,68 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{subfiles}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{mathtools}
+\usepackage{fullpage,setspace}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{framed}
+\usepackage{fancyhdr}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{verbatim}
+\usepackage{algorithmicx}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{titling}
+\usepackage{float}
+\usepackage{graphicx}
+\graphicspath{images}
+\usepackage{indentfirst} % indent first paragraph
+\usepackage{hyperref} % table of content links
+\hypersetup{
+    colorlinks=true,
+    allcolors=black
+}
+\usepackage[top=.5in, bottom=1in, left=.5in, right=.5in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem{exmp}{Example}[section]
+\newcommand\givenbase[1][]{\:#1\lvert\:}
+\let\given\givenbase
+\newcommand\sgiven{\givenbase[\delimsize]}
+\DeclarePairedDelimiterX\Basics[1](){\let\given\sgiven #1}
+
+\title{APMA 1655}
+\pretitle{\begin{center}\fontsize{20bp}{18bp}\selectfont}
+\posttitle{\par\end{center}}
+\predate{}
+\date{}
+\author{}
+\postdate{}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+% NOTE FILES BEGIN HERE %
+
+\subfile{27-01-17}
+\subfile{30-01-17}
+\subfile{01-02-17}
+\subfile{03-02-17}
+\subfile{06-02-17}
+\subfile{08-02-17}
+% NOTE FILES END HERE %
+
+%\section{Formulas}
+%\subfile{formulas}
+
+\end{document}

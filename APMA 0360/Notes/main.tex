@@ -1,0 +1,73 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{subfiles}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{mathtools}
+\usepackage{fullpage,setspace}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{interval}
+\usepackage{framed}
+\usepackage{fancyhdr}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{verbatim}
+\usepackage{algorithmicx}
+\usepackage{mathrsfs}
+\usepackage{titling}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage{graphicx}
+\graphicspath{images}
+\usepackage{indentfirst} % indent first paragraph
+\usepackage{hyperref} % table of content links
+\hypersetup{
+    colorlinks=true,
+    allcolors=black
+}
+\usepackage[top=.5in, bottom=1in, left=.5in, right=.5in]{geometry}
+\renewcommand{\vec}[1]{\underline{#1}}
+
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\divg}{div}
+
+\let\oldmarginpar\marginpar
+\reversemarginpar
+\renewcommand\marginpar[1]{%
+  \oldmarginpar[\RaggedRight\footnotesize #1]%
+    {\RaggedRight\footnotesize #1}}
+
+\title{APMA 0360}
+\pretitle{\begin{center}\fontsize{20bp}{18bp}\selectfont}
+\posttitle{\par\end{center}}
+\predate{}
+\date{}
+\postdate{}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+% NOTE FILES BEGIN HERE %
+
+\subfile{25-01-17}
+\subfile{27-01-17}
+\subfile{30-01-17}
+\subfile{01-02-17}
+\subfile{03-02-17}
+\subfile{06-02-17}
+\subfile{08-02-17}
+% NOTE FILES END HERE %
+
+%\section{Formulas}
+%\subfile{formulas}
+
+\end{document}

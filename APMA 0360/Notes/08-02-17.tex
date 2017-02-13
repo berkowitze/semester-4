@@ -1,0 +1,100 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\section{Wave equation on the line}
+
+Feb 8, 2017
+
+\vspace{3mm}
+
+$$\textrm{Wave equation} = \begin{cases}
+u_{tt} - c^2 u_{xx} = 0 & \textrm{ in } \mathbb{R} \times (0, \infty) \\
+u = f, u_t = g & \textrm{ on } \mathbb{R} times \{0\}
+\end{cases}$$
+
+$$\partial_{tt} - c^2\partial{xx} = (\partial_t + c\partial_x)(\partial_t - c\partial_x)$$
+
+Better to look at this in characteristic coordinates:
+
+$\xi = x - ct\, \eta = x + ct$ with $u(x, t) = U(\xi, \eta)$
+
+\begin{align}
+u_t &= U_\xi\cdot \xi_t + U_\eta\cdot \eta_t \\
+    &= U_\xi(-c) + U_\eta(c) \\
+\partial_t &= -c\partial_\xi + c\partial_\eta \\
+u_x &= U_\xi \xi_x + U_\eta \eta_x = U_\xi + U_\eta \\
+\partial_x &= \partial_\xi + \partial_\eta
+\end{align}
+
+\begin{align}
+    \partial_{tt} &= {\left(\partial_{t}\right)}^2 = c^2(\partial_{\eta\eta} - 2\partial_\xi\partial_\eta + \partial_{\xi\xi}) \\
+    c^2 \partial_{xx} &= c^2{(\partial_x)}^2 = c^2(\partial_{\eta\eta} + 2\partial_\xi\partial_\eta + \partial_{\xi\xi})
+\end{align}
+
+Therefore,
+
+$$\partial_{tt} - c^2\partial_{xx} = -4\partial_\xi\partial_\eta$$
+
+So $u(x, t)$ solves $u_{tt} - c^2u_{xx} = 0$ if and only if $U(\xi, \eta)$ solves $U_{\xi\eta} = 0$.
+
+Homework: $U(\xi, \eta) = F(\xi) + G(\eta)$ is general solution.
+
+General Solution:
+
+$$u(x, t) = F(x - ct) + G(x + ct)$$
+
+Now we want to get $F$ and $G$ from initial data $f, g$.
+
+$$u_t(x, 0) = F'(x)(-c) + G'(x)(c) = g(x)$$
+Integrate both sides:
+
+$$u(x, 0) = c(-F(x) + G(x)) = \int_0^x g(r)\,dr$$
+\begin{align}
+u(x, 0) &= F(x) + G(x) = f(x) \\
+        &-cF(x) + cG(x) = \int_0^x g(r)\,dr
+\end{align}
+
+$$
+\left[\begin{array}{ll}
+1 & 1 \\
+-c & c \\
+\end{array}\right]\cdot
+\left[\begin{array}{ll}
+F(x) \\
+G(x)
+\end{array}\right]
+=
+\left[
+\begin{array}{ll}
+f(x) \\
+\int_0^x g(r)\, dr
+\end{array}
+\right]
+$$
+Therefore,
+$$
+\left[\begin{array}{ll}
+F(x) \\
+G(x)
+\end{array}\right] = \frac{1}{2c}\cdot \left[\begin{array}{ll}
+c & -1 \\
+c & 1 \\
+\end{array}\right]\cdot \left[\begin{array}{ll}
+f(x) \\
+\int_0^x g(r)\, dr
+\end{array}\right]
+$$
+
+And $F(x) = \frac{1}{2} f(x) - \frac{1}{2c}\int_0^x g(r)\,dr$
+$G(x) = \frac{1}{2} f(x) + \frac{1}{2c}\int_0^x g(r)\,dr$
+
+$$u(x, t) = \frac{1}{2}\left[f(x-ct) + f(x+ct)\right] + \frac{1}{2c}\int_{x-ct}^{x+ct} g(r)\,dr$$
+
+This is d'Alembert's formula
+
+Heat equation: $u(x, t) = G(\cdot, t)* f(x)$ with $G_t - kG_{xx} = 0 and G = \delta(x)$
+
+Wave equation with $f(x) = \delta(x)$ with $g(x) = 0$.
+
+$$u(x, t) = \frac{1}{2}\left[\delta(x-ct) + \delta(x + ct)\right] \implies u(x, t) = \frac{1}{2c}(H(x + ct) - H(x - ct))$$
+\end{document}

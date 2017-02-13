@@ -1,0 +1,77 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\hrulefill{}
+
+Feb 6, 2017
+
+\vspace{3mm}
+Recall
+$$\mathbb{P}(A | B) = \frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}$$
+with $\mathbb{P}(A\cap B) = \mathbb{P}(A)\cdot \mathbb{P}(B)$ and $A$, $B$ independent.
+
+Prove that if $A$ and $B$ are independent, prove $\bar{A}, B$, $A, \bar{B}$ and $\bar{A}, \bar{B}$ are all independent.
+
+Use $\mathbb{P}(A \cap B) = \mathbb{P}(A) \cdot \mathbb{P}(B)$. Want to show that $\mathbb{P}(\bar{A} \cap B) = \mathbb{P}(\bar{A})\cdot \mathbb{P}(B)$
+
+\begin{align}
+\mathbb{P}(B) &= \mathbb{P}((A \cap B) \cup (\bar{A} \cap B)) \\
+              &= \mathbb{P}(A\cap B) + \mathbb{P}(\bar{A} \cap B) \\
+              &= \mathbb{P}(A)\mathbb{P}(B) + \mathbb{P}(\bar{A} \cap B) 
+\end{align}
+Therefore,
+\begin{align}
+\mathbb{P}(\bar{A} \cap B) &= \mathbb{P}(B) - \mathbb{P}(A)\mathbb{P}(B) \\
+                           &= (1 - \mathbb{P}(A))\mathbb{P}(B) \\
+                           &= \mathbb{P}(\bar{A})\mathbb{P}(B)
+\end{align}
+
+\subsection{Product Rule, Bayes' Rule, Law of Total Probability}
+
+\subsubsection{Product Rule}
+
+$$\mathbb{P}(A | B) = \frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}$$
+
+Therefore,
+\begin{equation}
+\label{eq:product-rule}
+\mathbb{P}(A\cap B) = \mathbb{P}(A | B)\mathbb{P}(B)
+\end{equation}
+
+\subsubsection{Bayes' Formula}
+
+\begin{equation}
+\label{eq:bayes}
+\mathbb{P}(A | B) = \frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)} = \frac{\mathbb{P}(B | A) \cdot \mathbb{P}(A)}{\mathbb{P}(B)}
+\end{equation}
+
+\begin{exmp}
+10\% of population have condition $C$. There is a test that determines with some inaccuracy if you have the condition.
+
+Test returns positive = $P$
+
+False positive (test returns positive but they don't have the condition): 30\%
+False negative (test returns negative but they do have the condition): 10\%
+
+Want to know the probability that you have the condition if the test returns positive.
+
+We know:
+
+\begin{itemize}
+    \item $\mathbb{P}(C) = 0.1$
+    \item $\mathbb{\bar{P}} = 0.9$
+    \item $\mathbb{P}(P | C) = 0.9$
+    \item $\mathbb{P}(P | \bar{C}) = 0.3$
+\end{itemize}
+
+\begin{align}
+\mathbb{P}(C | P) &= \frac{\mathbb{P}(P | C)\cdot\mathbb{P}(C)}{\mathbb{P}(B)}\\
+                  &= \frac{\mathbb{P}(C)\mathbb{P}(P | C)}{\mathbb{P}((P \cap C) \cup (P \cap \bar{C}))}\\
+                  &= \frac{\mathbb{P}(C)\mathbb{P}(P | C)}{\mathbb{P}(P\cap C) + \mathbb{P}(P \cap \bar{C})} \\
+                  &= \frac{\mathbb{P}(C)\mathbb{P}(P | C)}{\mathbb{P}(C)\mathbb{P}(P | C) + \mathbb{P}(\bar{C})\mathbb{P}(P | \bar{C})} \\
+                  &= \frac{0.1 * 0.9}{0.1 \cdot 0.9 + 0.1 \cdot 0.3} = 1/4
+\end{align}
+\end{exmp}
+
+\end{document}

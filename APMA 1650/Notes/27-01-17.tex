@@ -1,0 +1,80 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Chapter 1: Introduction to Probability}
+(Chapter 2 Wackerly)
+
+Jan 27, 2017
+
+\vspace{3mm}
+
+\textbf{Probability}: Try to predict the outcome of a process involving randomness
+\textbf{Statistics}: Try to understand the randomness causing the outcome of a process
+
+Aim: Introduce basic concepts of probability theory.
+
+\subsection{Probability Space}
+
+\textbf{Definitions}
+
+\begin{itemize}
+
+\item \textbf{Starting point}: random experiment (more than one possible outcome).
+
+\item \textbf{Sample space}: a set containing all possible outcomes. We denote this set with $S$ (sometimes $\Omega$).
+
+\item \textbf{Sample Point}: each possible outcome $x\in S$.
+
+\item \textbf{Event}: Any subset of $S$, $E\subset S$
+\end{itemize}
+
+Example: Flip two coins.
+\begin{itemize}
+    \item Outcomes: HH, HT, TH, TT
+    \item Sample Space $S$ = $\left\{HH, HT, TH, TT\right\}$
+    \item Sample Points: $x_1 = $HT is a sample point
+    \item Event Examples:
+    \begin{itemize}
+        \item $E_1 = \left\{\textrm{HH, HT, TH}\right\}$ (don't flip tails twice)
+        \item $E_2 = \left\{\textrm{TH, HT}\right\}$
+        \item $E_3 = \left\{\right\} = \varnothing$
+        \item $E_4 = \textrm{ all outcomes}$
+    \end{itemize}
+\end{itemize}
+
+A \textbf{probability} tells you how likely an \textit{event} is.
+
+Something that always happens $\implies P = 1$
+Something that never happens $\implies P = 0$
+
+Definition: A probability $\mathbb{P}$ in a sample space $S$ is a function that assigns to each event a non-negative number.
+We require that:
+\begin{enumerate}
+    \item $0 \le \mathbb{P}(E) \le 1$ for every event
+    \item $\mathbb{P}(S) = 1$
+    \item With $E_i$, $E_j$ ($i \neq j$), if $E_i \cap E_j = \varnothing$ then $\mathbb{P}(E_1\cup E_2\cup...) = \mathbb{P}(E_1) + \mathbb{P}(E_2) + ...$
+\end{enumerate}
+
+Remarks:
+\begin{enumerate}
+    \item $\mathbb{P}(E_1\cup E_2) = \mathbb{P}(E_1) + \mathbb{P}(E_2)$ if $E_1 \cup E_2 = \varnothing$
+    \item If $\bar{E} = S \setminus E$ (Complement of event) then $\mathbb{P}(\bar{E}) = 1 - \mathbb{P}(E)$
+    \item $\mathbb{P}(\varnothing) = 0$
+\end{enumerate}
+
+A probability space is a sample space $S$, together with a probability on $S$.
+
+Back to the example:
+
+Suppose the coin is fair (each outcome is equally likely).
+
+Then $\mathbb{P}(HH) = \mathbb{P}(HT) = \mathbb{P}(TH) = \mathbb{P}(TT) = 1/4$
+\begin{itemize}
+    \item $\mathbb{P}(E_1) = \mathbb{P}(\left\{\textrm{HH, HT, TH}\right\}) = 3/4$
+    \item $\mathbb{P}(E_2) = \mathbb{P}(\left\{\textrm{HT, TH}\right\}) = 1/2$
+    \item $\mathbb{P}(E_3) = \mathbb{P}(\left\{\right\}) = 0$
+    \item $\mathbb{P}(E_4) = \mathbb{P}(\left\{\textrm{All events}\right\}) = 1$
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,91 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\hrulefill{}
+
+Feb 1, 2017
+
+\vspace{3mm}
+
+\subsection{Heat equation in higher dimensions}
+
+Space variables in $\mathbb{R}^d$ such as $(x, y)$ or $(x, y, z)$
+
+Denote as $\vec{x} = (x_1, \dotsb, x_d)$
+
+Working in domain $\Omega \subset \mathbb{R}^d$
+
+In one dimension (eq \#\ref{eq:heat}), $u_t + \phi_x = f$ with $\phi = -ku_x$ giving $u_t - ku_{xx} = f$.
+
+Found this by taking the derivative of the total amount: $\frac{d}{dt}\int_a^b u\,dx = \phi(a) - \phi(b) + \int_a^b f\,dx$
+
+Let $B$ be a solid ball inside of $\Omega$.
+
+$$B = \vec{B}(\vec{x}, r) = \{\vec{y} \in \mathbb{R}^d \textrm{ : } \left|\vec{x} - \vec{y}\right| < r\}$$
+
+$$\int_B u\,dV \textrm{ proportional to heat energy.}$$
+
+Need to know flux in or out of the ball.
+$$\frac{d}{dt}\int_B u\,dV = \int_B f\,dV - \int_{\partial B} \vec{\phi}\cdot \vec{n}\,dA$$
+
+Here,
+\begin{itemize}
+    \item $\partial B$ = boundary of $B = \{\vec{y} \in \mathbb{R}^d : \left|\vec{x} - \vec{y}\right| = r\}$
+    \item $\vec{\phi} = \left(\textrm{ flux in direction parallel to } x_1 \textrm{, \ldots, flux in direction parallel to } x_d\right)$
+    \item $\vec{n} = \textrm{ outward unit normal}$
+\end{itemize}
+
+Therefore, $\vec{\phi}\cdot \vec{n}$ = rate of flux per unit area across surface perpendicular to $\vec{n}$.
+
+Use divergence theorem:
+$$\int_{\partial B} \vec{\phi} \vec{n}\,dA = \int_B \divg{\phi}\, dV$$
+
+What is the divergence here?
+
+$$\vec{\phi} = \left(\phi_1, \phi_2, \ldots, \phi_d\right) \implies \divg{\vec{\phi}} = \left(\partial_{x_1}\phi_1 + \partial_{x_2} + \cdots + \partial_{x_d}\phi_d\right)$$
+
+Using this:
+
+$$\frac{d}{dt} \int_B u\,dV = \int_B f - \divg{\vec{phi}}\,dV = \int_B u_t\, dV$$
+
+Equating integrands (assuming continuity):
+
+$$u_t = f - \divg{\phi}$$
+
+Using Fourier's law of conduction, $\vec{\phi} = -k\nabla u$.
+
+Recall that $\divg{\nabla u} = \Delta u$:
+\begin{equation}
+    \label{eq:heat-higher-dimensions}
+    u_t - k\Delta u = f
+\end{equation}
+
+\subsubsection{Example}
+Assume $\Omega$ does not include boundary.
+$$
+\begin{cases}
+    u_t - \Delta u = f & (x, t) \in \Omega\times \interval{0}{\infty} \\
+    u = g & (x, t) \in \partial \Omega \times \interval{0}{\infty} \\
+    u = u_0 & (x, t) \in \Omega \times \{0\}
+\end{cases}
+$$
+
+
+\subsection{Laplace Equation}
+Suppose $g, f$ are independent of time. After long time, expect a steady state ($u(\vec{x}, t) = w(\vec{x})$) where $w(x)$ solves the PDE and the boundary condition, but not the initial condition. Because of this $u_t = 0$.
+
+Therefore, $\vec{w}(x)$ solves
+$$
+\begin{cases}
+    -k\Delta w = f & \vec{x} \in \Omega \\
+    w = g & \vec{x} \in \partial\Omega \\
+\end{cases}
+$$
+This yields two functions:
+
+Poisson equation:
+$$\Delta w = -\frac{1}{k} f$$
+Laplace equation:
+$$\Delta w = 0$$
+\end{document}

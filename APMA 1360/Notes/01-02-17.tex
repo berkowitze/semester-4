@@ -1,0 +1,43 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\hrulefill{}
+
+Feb 1, 2017
+
+\vspace{3mm}
+
+This sort of bifurcation is a \textbf{pitchfork bifurcation}.
+
+New goals:
+\begin{itemize}
+    \item Understand when equilibria persist under parameter changes.
+    \item When and how do new equilibria emerge or old equilibria disappear with parameter changes?
+\end{itemize}
+
+\subsection{Parameter-dependent differential equations}
+
+\begin{equation}
+    \label{eq:2}
+    \begin{cases}
+        \frac{du}{dt} = f(u, \mu) \\
+        u\in\mathbb{R} \\
+        f: \mathbb{R}^2 \mapsto \mathbb{R}
+    \end{cases}
+\end{equation}
+
+We say that $u_0$ is \textbf{hyperbolic} if, for $\mu = \mu_0$,
+\begin{itemize}
+    \item $f(u_0, \mu_0) = 0$
+    \item $f_u(u_0, \mu_0) \neq 0$
+\end{itemize}
+
+$$f_u(u_0, \mu_0)\begin{cases}
+    > 0 & u_0 \textrm{ is stable} \\
+    < 0 & u_0 \textrm{ is unstable}
+    \end{cases}$$
+
+Example: $f(u, 0) = u$
+$u_0 = 0$ is a hyperbolic equilibrium at $\mu = 0$. This equilibrium is unstable.
+\end{document}

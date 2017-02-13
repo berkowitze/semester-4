@@ -1,0 +1,108 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\hrulefill{}
+
+Feb 8, 2017
+
+\vspace{3mm}
+
+Recall:
+
+Product Rule: $$\mathbb{P}(A \cap B) = \mathbb{P}(B)\mathbb{P}(A \given B)$$
+
+Bayes' Formula: $$\mathbb{P}(A \given B) = \frac{\mathbb{P}(B \given A)\cdot \mathbb{P}(A)}{\mathbb{P}(B)}$$
+
+\subsubsection{The Law of Total Probability}
+
+$S = B_1 \cup B_2 \cup B_3 \cup B_4$ with $B_i \cap B_j = \varnothing$. Want to calculate $\mathbb{P}(E)$.
+
+$$E = (E\cap B_1) \cup (E \cap B_2) \cup (E \cap B_3) \cup (E \cap B_4)$$
+
+Therefore,
+
+\begin{align}
+\mathbb{P}(E) &= \mathbb{P}((E\cap B_1) \cup (E \cap B_2) \cup (E \cap B_3) \cup (E \cap B_4)) \\
+              &= \mathbb{P}(B_1)\mathbb{P}(E\given B_1) + \cdots + \mathbb{P}(B_4)\mathbb{P}(E \given B_4)
+\end{align}
+
+\begin{exmp}
+A, B, and C produce ``good'' (G) objects with probability (w.p.) 0.7, 0.8, and 0.9 respectively.
+
+Out of total production of company, A does 40\%, B does 45\%, and C does 15\%.
+
+Chosing a random object, what is the probability that the object is good? ($\mathbb{P}(G)$)
+$$S = A \cup B \cup C$$
+\begin{align}
+\mathbb{P}(G) &= \mathbb{P}(A)\mathbb{P}(G \given A) + \mathbb{P}(B) \mathbb{P}(G \given A) + \mathbb{P}(C) \mathbb{P}(G \given C)
+              &= 0.4 \cdot 0.7 + 0.45 \cdot 0.8 + 0.15 \cdot 0.9 = 0.775
+\end{align}
+
+Now what is the probability that a faulty object (F) was produced by A?
+\begin{align}
+\mathbb{P}(A \given F) &= \frac{\mathbb{P}(F \given F)}{\mathbb{P}(F)}
+                       &= \frac{\mathbb{P}(A)\mathbb{P}(F\given A)}{1 - \mathbb{P}(G)}
+                       &= \frac{0.4 \cdot 0.3}{1 - 0.775}
+\end{align}
+
+\end{exmp}
+
+You can see that it is often helpful to rewrite Bayes' using the Law of Total Probability:
+
+\begin{align}
+\mathbb{P}(B_1 \given E) &= \frac{\mathbb{P}(E \given B_i)\mathbb{P}(B_i)}{\mathbb{P}(E)} \\
+                         &= \frac{\mathbb{P}(E \given B_i)\mathbb{P}(B_i)}{\mathbb{P}(B_1)\mathbb{P}(E\given B_1 + \cdots + \mathbb{P}(B_n)\mathbb{P}(E \given B_n))}
+\end{align}
+
+\subsection{Examples}
+
+\begin{exmp}
+Simpson's Paradox
+
+A, B drugs
+
+A taken by 1100, healed 170 (H)
+B taken by 200, 60 H
+
+\begin{align}
+\mathbb{P}(H\given A) &= \frac{170}{1100} \approx 0.15 \\
+\mathbb{P}(H\given B) &= \frac{60}{200} = 0.3
+\end{align}
+
+This makes it seem like B is better, but:
+
+Out of the 1100 that took A, 1000 were women, out of which 110 where healed, and out of the 100 men, 60 were healed.
+
+Out of the 200 that took B, 100 were women, out of which 10 where healed, and out of the 100 men, 50 were healed.
+
+$$\mathbb{P}(H \given (A\cap M)) = 0.6$$
+
+$$\mathbb{P}(H \given (B \cap M)) = 0.5$$
+
+So A was better for men.
+
+$$\mathbb{P}(H \given (B\cap W)) = 0.11$$
+
+$$\mathbb{P}(H \given (B \cap W)) = 0.1$$
+
+So A was also better for women.
+\end{exmp}
+
+\begin{exmp}
+    First game, each player wins with probability $1/2$. From then on, you have $2/3$ chance if you won the previous game, and $1/3$ if you lost.
+
+    Rules: If you win first two games, you win. Otherwise, decider round.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{tournament-tree}
+    \end{figure}
+
+    $$\mathbb{P}(\textrm{winning}) = \mathbb{P}(WW) + \mathbb{P}(WLW) + \mathbb{P}(LWW) = 1/2$$
+
+    $$\mathbb{P}(\textrm{winning}\given\textrm{win first game}) = \frac{\mathbb{P}(\textrm{Win and win first})}{\mathbb{P}(\textrm{1st game})} = \frac{1/2*2/3 + 1/2 * 1/3 * 1/3}{1/2} = 7/9$$
+
+\end{exmp}
+
+\end{document}

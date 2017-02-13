@@ -1,0 +1,92 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Bifurcation Theory}
+
+Jan 27, 2017
+
+\vspace{3mm}
+\subsection{Damped bead on a rotating hoop}
+Overdamped bead on a rotating hoop (\ref{fig:hoop-and-bead}). Hoop immersed in viscous fluid.
+
+Angular velocity $\omega$.
+
+Use Newton's Law (sum of forces = mass $\times$ acceleration)
+
+Forces:
+\begin{itemize}
+    \item Gravity ($mg$)
+    \item Centrifugal ($m\omega^2 r\sin{\phi}$)
+\end{itemize}
+
+Decompose forces into tangential components (other components won't move bead).
+
+\begin{itemize}
+    \item Gravity Component: $mg\sin{\phi}$
+    \item Centrifugal Component: $m\omega^2r\sin{\phi}\cos{\phi}$
+    %\item Frictional Component:
+\end{itemize}
+
+Therefore:
+\begin{align}
+ma &= m\omega^2r\sin{\phi(t)}\cos{\phi(t)} - mg\sin{\phi(t)} \\
+&= mr\frac{d^2\phi}{dt^2}
+\end{align}
+
+Including damping:
+
+\begin{align}
+mr\frac{d^2\phi}{dt^2} &= m\omega^2 r\sin{\phi(t)}\cos{\phi(t)} \\
+                       &- mg\sin{\phi(t)} - b\frac{d\phi}{dt}
+\end{align}
+
+Assuming $b >> 1$ compared to other parameters (damping dominates acceleration forces) $\implies mr\frac{d^2\phi}{dt^2} \rightarrow 0$
+
+\begin{align}
+\dot{\phi} &= \frac{mg}{b}\sin{\phi}\left(\frac{r\omega^2}{g}\cos{\phi} - 1\right) \\
+           &= a\sin{\phi}\left(\mu\cos{\phi} - 1\right)
+\end{align}
+with $a = mg/b$ and $\mu=\frac{r\omega^2}{g}$
+
+Goal is to find how $\mu$ effects the dynamics.
+
+\subsection{Review of ODE stuff}
+
+\begin{enumerate}
+    \item $\frac{du}{dt} = f(v), v\in\mathbb{R}, f: \mathbb{R} \mapsto \mathbb{R}$
+
+    \item $v(t)$ is position of a particle at time $t$
+
+    \item $f(v)$ is the velocity of the particle at position v
+\end{enumerate}
+
+\textbf{Existence and Uniqueness Theorem:}
+
+If $f$ is twice differentiable, and fix $v_0\in\mathbb{R}$. Then the equation $\frac{du}{dt}=f(u)$ with $v(0) = v_0$ has a unique solution on an interval containing $t=0$.
+
+Geometric Viewpoint:
+
+fig
+\begin{itemize}
+
+\item If $u_\star$ is such that $f(u_\star)=0$, then $u(t)=u_\star\forall t$ is a (and therefore the) solution.
+
+Proof: $\frac{du}{dt} == f(u(t))$
+
+$u(t)$ is a constant function, therefore it's derivative is 0. $f(u(t)) = 0$ by assumption.
+
+The points $u_\star$ are called equilibra points.
+
+\item If $f(u) > 0 \implies \frac{du}{dt} = f(u) > 0 \implies u(t)$ increases as t increases $\implies u(t)$ moves to the right.
+
+\item If $f(u) < 0 \implies \frac{du}{dt} = f(u) < 0 \implies u(t)$ decreases as t increases $\implies u(t)$ moves to the left.
+
+\end{itemize}
+
+From figure, $v_1, v_3$ are \textbf{stable equilibra}: Solutions with initial conditions near $v_1$ (or $v_3$) will converge to that $v_1$ (or $v_3$)
+
+$v_2$ is an \textbf{unstable equilibra}: solutions with initial conditions near $u_2$ but not exactly on $v_2$ move away as $t$ increases.
+
+We find these equilibra by solving $f(u) = 0$
+\end{document}

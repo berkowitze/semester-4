@@ -1,0 +1,74 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\hrulefill{}
+
+Feb 3, 2017
+
+\vspace{3mm}
+
+\section{Conditional Probability \& Independence}
+
+Aims:
+
+\begin{itemize}
+    \item How an event happening changes our beliefs about other events happening
+    \item Bayes' Formula
+\end{itemize}
+
+\subsection{Conditional Probability \& Independence}
+$$(S, \mathbb{P})\textrm{ with } A, B \subset S$$
+
+The conditional probability of $A$ given $B$:
+\begin{equation}
+\label{eq:conditional-probability}
+\mathbb{P}(A | B) = \frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)}
+\end{equation}
+
+This normalizes to the \"world\" that $B$ happened in.
+
+\begin{itemize}
+    \item $A$ \& $B$ are independent if $\mathbb{P}(A\cap B) = \mathbb{P}(A)\cdot\mathbb{P}(B)$
+    
+    This implies that $\mathbb{P}(A | B) = \frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)} = \frac{\mathbb{P}(A)\mathbb{P}(A)}{\mathbb{P}(B)} = \mathbb{P}(A)$
+
+    \item If $\mathbb{P}(A | B) = \mathbb{P}(A)$, then $A$ \& $B$ are independent.
+\end{itemize}
+
+\begin{exmp}
+    Roll two dice
+    \begin{itemize}
+        \item Event $A$ = ``sum is 4''
+        \item Event $B$ = ``at least one die is a 5''
+        \item Event $C$ = ``sum is 7''
+        \item Event $D$ = ``first die is a 5''
+    \end{itemize}
+
+    $$\mathbb{P}(A\cap B) = \mathbb{P}(\varnothing) = 0 \neq \mathbb{P}(A)\cdot \mathbb{P}(B)$$
+    Therefore, $A$ and $B$ are not independent.
+
+    $$\mathbb{P}(C | B) = \frac{\mathbb{P}(B \cap C)}{\mathbb{P}(C)} = \frac{2/36}{11/36} = 2/11 \neq \mathbb{P}(C) = 1/6$$
+    Therefore, $B$ and $C$ are not independent.
+
+    $$\mathbb{P}(C | D) = \frac{\mathbb{P}(C \cap D)}{\mathbb{P}(D)} = \frac{1/36}{1/6} = 1/6 = \mathbb{P}(D)$$
+    Therefore, $C$ and $D$ are independent.
+
+\end{exmp}
+
+\begin{exmp}
+    Switch with two paths to endpoint. (FIGURE)
+    $E$ = System works if one or two work.
+
+    Known: $\mathbb{P}(1\textrm{ works}) = \mathbb{P}(2\textrm{ works}) = 0.9$, and they are independent.
+    $E_1$: Switch 1 works
+    $E_2$: Switch 2 works
+    $$\mathbb{P}(E) = 1 - \mathbb{P}(\bar{E}) = 1 - \mathbb{P}(E_1 \cap E_2) = 1 - \mathbb{P}(E_1)\mathbb{P}(E_2) = 1 - 0.1^2 = 0.99$$
+
+    What about $$\mathbb{P}(E_1 | E) = \frac{\mathbb{P}(E_1 \cap E)}{\mathbb{P}(E)} = \frac{\mathbb{P}(E_1)}{\mathbb{P}(E)} = .9/.99 = .91.$$
+\end{exmp}
+
+What about considering more than two events?
+
+
+\end{document}

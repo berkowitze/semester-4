@@ -1,0 +1,37 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\hrulefill{}
+
+Feb 1, 2017
+
+\vspace{3mm}
+
+\subsection{Multinomial Coefficients}
+
+Want more than two groupings.
+
+For instance, $N$ items with $k$ different types with $n_1$ items of type 1, $n_2$ items of type 2, \ldots, $n_k$ items of type $k$ with $\sum\limits_{i=1}{k} n_i = N$.
+
+Question: in how many ways can I choose items into those groups.
+
+The number of ways is written:
+
+\begin{align}
+{{N}\choose {n_1, n_2, \ldots, n_k}} &= {{N} \choose{n_1}} \cdot {{N-n_1} \choose{n_2}} \cdot {{N-n_1-n_2} \choose{n_3}} \cdot \ldots{n_k} \cdot {{n_k}\choose{n_k}}\\
+                                   &= \frac{N!}{n_1!\,n_2!\,\cdots \, n_k!}
+\end{align}
+
+Example:
+
+20 jobs: 6 of type 1, 4 of type 2, 5 of types 3 and 4.
+
+Probability of 4 specific people being assigned to job 1?
+
+$$|S| = {{20}\choose{6,4,5,5}}$$
+$$|E| = {{16}\choose{2,4,5,5}}$$
+
+\hrulefill{}
+
+\end{document}

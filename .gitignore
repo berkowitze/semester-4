@@ -1,0 +1,9 @@
+.DS_Store
+GEOL 1520/Assignments
+*.nc
+*.pyc
+*.aux
+*.toc
+*.log
+*.pdf
+*.exe

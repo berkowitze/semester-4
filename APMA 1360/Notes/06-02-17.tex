@@ -1,0 +1,47 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\hrulefill{}
+
+Feb 6, 2017
+
+\vspace{3mm}
+
+Motivation of implicit function theorem:
+
+$f = \dot{u}$ with $u$ location of a partical and $\mu$ some parameter. Assume that $u_0$ is a hyperbolic equilibrium for $\mu = \mu_0$ ($f(u_0, \mu_0) = 0$, $f_u(u_0, \mu_0 \neq 0)$). Then $f$ has a unique equilibrium $u = g(\mu)$ (with $g(\mu_0) = u_0$ for $\mu$ near $\mu_0$ and $u$ near $u_0$)
+
+Furthermore, this equilibrium has the same stability type of $u_0$ for $\mu$ near $\mu_0$. This is because $f$ has the same sign as $f_u(u_0, \mu_0)$
+
+This isn't always valid, so we need new theory to account for when the number of equilibria changes as the parameter changes. ($u_0$ is not hyperbolic).
+
+\subsection{Other types of equilibria}
+
+Case: $f(u_0, \mu_0) = 0$ \textit{and} $f_u(u_0, \mu_0) = 0$ (undetermined in terms of stability).
+
+Example is pitchfork bifurcation from bead on rotating hoop (\# of equilibria chnages from 1 to 3).
+
+Assumptions: $f\in \mathbb{C}^\infty$ and, without loss of generality, $f(0, 0) = 0, f_u(0, 0) = 0$. For now assume $u_0 = \mu_0 = 0$ to make things easier.
+
+Goal: Solve $f(u, \mu) = 0$ near $(u, \mu) = (0, 0)$. Strategy is to exploit that $f \in \mathbb{C}^\infty$ and that $(u, \mu) \approx (0, 0)$.
+
+Taylor expand:
+
+\begin{align}
+f(u, \mu) &= f(0, 0) + f_u(0, 0)\cdot u + f_{\mu}(0, 0)\cdot \mu + \frac{1}{2}f_{uu} u^2 + \frac{1}{2}f_{\mu\mu} \mu^2 + \frac{1}{2}f_{u\mu} u\mu + O(u, \mu )^3 \\
+          &= f_{\mu}(0, 0)\cdot \mu + \frac{1}{2}f_{uu} u^2 + \frac{1}{2}f_{\mu\mu} \mu^2 + \frac{1}{2}f_{u\mu} u\mu + O(u, \mu )^3  = 0
+\end{align}
+
+Approach: genericity (what do the Taylor coefficients of a typical function $f(u, \mu)$ generally look like?)
+
+Then what does a ``typical'' function look like? Going through the Taylor coefficients and seeing what they typically look like:
+
+\begin{itemize}
+    \item $f_0(0, 0)$: By flipping the variables in the implicit function theorem, we know this term is \textbf{not} equal to 0.
+
+    Assume that $f_\mu(0, 0)\neq 0$. Then we can apply implicit function theorem with $u$ and $\mu$ switched. We conclude that $f(u, \mu) = 0$ near $(0, 0)$ if and only if $\mu = g(u)$ with $g(0) = 0$ and $g \in \mathbb{C}^\infty$.
+
+    Some possibilities for $\mu = g(u)$ are parabolas or linear functions of $u$.
+\end{itemize}
+\end{document}

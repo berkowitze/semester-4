@@ -1,0 +1,44 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\hrulefill{}
+
+Jan 30, 2017
+
+\vspace{3mm}
+
+\subsection{Permutations, Combinations, Multinomial Coefficients}
+
+\textbf{Permutations}: The \# of ways to order a list of items.
+
+\textbf{Combinations}: The \# of ways to choose $k$ items from a set (order doesn't matter)
+
+\subsubsection{Permutations}
+
+Want to order $n$ items:
+
+For first object, have $n$ options.
+
+For second object, have $n - 1$ options.
+
+Continuing this way, have $n!$ options with $0! = 1$.
+
+For ordering $k$ out of $n$ items, there are $n \cdot (n - 1) \cdot (n - k + 1)$ options
+
+\subsubsection{Combinations}
+
+\underline{Order doesn't matter.}
+
+\begin{align}
+    {n \choose k} &= \frac{n\cdot (n - 1) \cdots \cdot (n - k + 1)}{k!} \\
+                  &=
+                  %\label{eq:combinations}
+                  \frac{n!}{k!(n-k)!}
+\end{align}
+
+Example: 2 male, 3 female candidates for 2 jobs. What is the probability that both jobs are given to men.
+
+Size of sample space is $5 \choose 2 = 10$
+
+\end{document}

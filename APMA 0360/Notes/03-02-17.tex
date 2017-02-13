@@ -1,0 +1,65 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\hrulefill{}
+
+Feb 3, 2017
+
+\vspace{3mm}
+
+Solving explicitly is possible with simple domains like rectangles or disks, but with more complex domains it is often impossible or very difficult. We can still determine properties though.
+
+Suppose $\Delta u = 0$. Then $u$ has the \textbf{mean value property}.
+
+\textbf{Mean value property} where $B$ is a ball.
+\begin{equation}
+\label{eq:mean-value}
+u(\vec{x_0}) = \frac{1}{\textrm{Vol }B(x_0, r)}\int_{B(\vec{x_0}, r)} u\,dV = \frac{1}{\textrm{Area }\partial B(\vec{x}_0, r)} \int_{\partial B(\vec{x_0}, r)} u(x)\,dA
+\end{equation}
+
+Which is true for \textbf{all} $\vec{x_0}$ and all $r > 0$.
+
+$$\frac{1}{\textrm{Area }\partial B(\vec{x}_0, r)} \int_{\partial B(0, 1)} u(\vec{x_0} + r\vec{n})\,dA(\vec{n})\cdot \frac{\textrm{area}(\partial B(x_0, r))}{\textrm{area}(\partial B(0, 1))}$$
+
+Now take $\frac{d}{dr}$ which will give $0$:
+
+$$\int_{\partial B(\vec{0}, 1)} \Del \vec{u}(x_0 + r\vec{n}) \cdot \,dA\,dV = \int_{B(\vec{0}, 1)} \divg{\Del u(x_0 + rn)} \, dV = 0$$
+
+This follows from the fact that $\divg{\Del u} = \Delta u = 0$
+
+Implications:
+
+\subsection{Boundary minima and maxima Implication}
+Unless $u$ is a constant, then the max and min of $u$ are achieved only on the boundary $\partial \Omega$.
+
+This makes sense with steady state heat equation.
+
+\subsubsection{Continuity Implication}
+
+Suppose $u$ is a $C^2$ solution of $\Delta u = 0$. Then $u$ is automatically $C^\infty$.
+
+\subsubsection{Uniqueness implication}
+
+Suppose $u, v$ both solve:
+$$
+\begin{cases}
+    \Delta u = f & \textrm{in } \Omega \\
+    u = g & \textrm{on } \partial \Omega
+\end{cases}
+$$
+Then $u = v$ (uniqueness of solutions).
+
+Proof:
+
+Let $w = u - v$
+
+Then $$
+\begin{cases}
+\Delta w = 0 & \textrm{in } \Omega \\
+w = 0 & \textrm{on } \partial \Omega
+\end{cases}$$
+
+This means max and min are zero, and max min are on boundary, so $w = 0$ in $\Omega$. Then $u = v$.
+
+\end{document}

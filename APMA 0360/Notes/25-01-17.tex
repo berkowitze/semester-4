@@ -1,0 +1,94 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\hrulefill
+
+Jan 25, 2017
+
+\vspace{3mm}
+
+\textbf{What are PDEs?}
+
+An equation relating the partial derivatives of some function of several variables.
+
+Solutions of form: $u = u(x, t)$, $u = u(x, y, t)$, $u = u(x, y, z, t)$, $u = u(x, y)$, etc.
+
+General form: $G(x, t, u, u_x, u_t, u_{xx}, u_{xt}, u_{tt}, ...) = 0$
+
+Second order: $G(x, t, u, u_x, u_t, u_{xx}, u_{xt}, u_{tt}) = 0$
+
+Unknown: The function $u$.
+
+Note: $\frac{\partial u}{\partial x} = u_x = \partial_x u$
+
+Gradient: combines spatial derivatives into a vector.
+
+Definition: $u = u(x,y,z) \implies \triangledown u = Du = \grad{u} = (u_x, u_y, u_z)$ (Row vector)
+
+Laplacian: $\triangle u = \triangledown^2 u = \triangledown \cdot \triangledown u = \divg{\triangledown u} = u_{xx} + u_{yy} + u_{zz}$
+
+\textbf{ODE vs PDE}
+
+\begin{itemize}
+    \item \# and type of independent variables
+        - ODEs: One independent variable
+        - PDEs: Multiple independent variables
+        For vector valued problem:
+        % - ODEs: \begin{align}
+        % x(t) &= (x_1(t), ..., x_n(t))
+        %      &= {1, ..., n} \times \mathbb{R}
+        % x'(t) &= f(t, x(t))
+        %                      \end{align}
+        % - PDEs: 
+    \item Systems
+        - ODEs: $x' = Ax \implies \frac{dx}{dt} = Ax$
+        - PDEs: $u(x, t) \implies u_t = u_{xx}$ (something like this)
+\end{itemize}
+
+\textbf{Questions}
+\begin{itemize}
+    \item Well-posedness:
+    $$
+    \begin{cases}
+        \textrm{Existence of solutions} \\
+        \textrm{Uniqueness of solutions} \\
+        \textrm{Continuous (cts) dependence on given data}
+    \end{cases}$$
+    \item (Semi-)Explicit formulas
+    \item Approximation for well posed problems (numerical solutions)
+\end{itemize}
+
+\textbf{Main equations}
+
+Heat equation (Linear Parabolic PDEs):
+\begin{equation}
+    \label{eq:heat}
+    u_t = k\triangle u \\
+    u = u(x, t), u_t = ku_{xx} \textrm{ (one dimension)}
+\end{equation}
+
+Wave equation (Linear Hyperbolic PDEs):
+\begin{equation}
+   \label{eq:wave}
+   u_{tt} = c^2\triangle u \
+   u = u(x, t), u_{tt} = c^2u_{xx}
+\end{equation}
+
+Laplace-Poisson Equation (Linear Elliptic PDEs):
+\begin{equation}
+   \label{eq:laplace-poisson}
+   \triangle u = 0 \\
+   u = u(x, y), u_{xx} + u_{yy} = 0
+\end{equation}
+
+All of these can be written as $Lu = 0$:
+\begin{enumerate}
+    \item Heat: $L = \partial_t - k\triangle$
+    \item Wave
+    \item Poisson
+\end{enumerate}
+If there's a source, $Lu = f$
+Generally, $L(u + v) = Lu + Lv$, $L(cu) = cL(u)$.
+
+\end{document}

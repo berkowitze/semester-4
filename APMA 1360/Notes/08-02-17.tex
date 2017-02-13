@@ -1,0 +1,86 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\hrulefill{}
+
+Feb 8, 2017
+
+\vspace{3mm}
+
+Recall:
+
+$$f(0, 0) = 0, f_u (0, 0) = 0, f_\mu (0, 0) \neq 0$$
+
+We find that $$f(u, \mu)=0$$ near (0, 0) if and only if $\mu = g(u)$.
+
+Now, the goal is to get more information about $g(u)$
+
+\begin{align}
+\mu = g(u) &= g(0) + g'(0)u + \frac{1}{2}g''(0)u^2 + O(u^3) \\
+           &= g'(0)u + \frac{1}{2}g''(0)u^2 + O(u^3)
+\end{align}
+
+$$g'(0) \neq 0 \implies \mu \approx u \implies \textrm{ linear bifurcation diagram}$$
+$$g'(0) = 0 \implies \mu \approx u^2 \implies \textrm{ quadratic bifurcation diagram}$$
+
+If $\mu = g(u)$, $\star = f(u, \mu) = f(u, g(u)) = 0$
+
+Differentiating $\star$ with respect to $u$:
+
+$$\star' = f_u + f_\mu\cdot g'(u) = 0$$
+
+Evaluated at $u = 0 \implies f_u(0, 0) + f_\mu(0, 0)\cdot g'(0) = 0 = f_\mu(0, 0)g'(0)\implies g'(0) = 0$
+
+Because of this,  $g(u) = \frac{1}{2} g''(0)u^2 + O(u^3)$.
+
+Differentiate $\star$ one more time.
+
+\begin{align}
+\star'' &= \frac{d}{du}(f_u + f_\mu g'(u)) = 0 \\
+        &= f_{uu} + f_{u\mu}g'(u) + f_{u\mu}g'(u) + f_{\mu\mu}g'^2(u) + f_u\cdot g''(u) \\
+        &\implies \textrm{When u goes to 0} \\
+\implies \star'' &= f_{uu} + f_\mu\cdot g''(0)
+\end{align}
+
+Therefore,
+
+$$g''(0) = \frac{f_{uu}(0, 0)}{f_\mu (0, 0)}$$
+
+Conclusion:
+
+When $\frac{du}{dt} = f(u, \mu)$, assuming:
+\begin{itemize}
+    \item $u = 0$ is an equilibrium ($f(0, 0) = 0$)
+    \item $u = 0$ is not hyperbolic ($f_u(0, 0) = 0$)
+    \item $f_\mu(0, 0) \neq 0$
+\end{itemize}
+
+Then $f(u, \mu) = 0$ for $(u, \mu)$ close to $(0, 0)$ if and only if $\mu = g(u)$ for a unique $C^\infty$ function $g(u)$ and we have that $g(u) = -\frac{1}{2}\frac{f_{uu}(0,0)}{f_\mu(0, 0)}u^2 + O(u^3)$
+
+Now we want to thnk about stability:
+
+$f(u, \mu) = \dot{u}$ with equilibria $(u, \mu) = (u, g(u))$. Take derivative:
+
+\begin{itemize}
+    \item Stable if $f_u (u, g(u)) < 0$
+    \item Unstable if $f_u (u, g(u)) < 0$
+\end{itemize}
+
+Use Taylor Expansion:
+
+\begin{align}
+    f(u, \mu) &= f + f_u\cdot u + \frac{1}{2}f_{uu}\cdot u^2 + O(\mu u + \mu^2 + u + \mu)^3 \\
+              &= f_{uu}\cdot u^2 + O(|\mu| + \mu^2)
+               \textrm{With } g(u) &= -\frac{1}{2}\frac{f_{uu}}{f_\mu}\cdot u^2 + O(|u|^2) \\
+    f_u(u, \mu) &= f_{uu} \neq 0
+\end{align}
+
+Theorem:
+
+Assuming:
+$$\dot{u} = f(u, \mu) \textrm{ with } f(u_0, \mu_0) = 0 \textrm{ and } f_u(u_0,\mu_0) = 0, f_\mu(u_0, \mu_0) \neq 0\textrm{, and } f_{uu}(u_0, \mu_0) \neq 0$$
+
+Then $f(u, \mu) = 0$ for $(u, \mu)$ near $(u_0, \mu_0)$ if and only if $\mu = g(u)$ for a unique $C^\infty$ function $g$ with $g(u) = \mu_0 - \frac{f_{uu}}{f_\mu} (u - u_0)^2 + O(|u - u_0|^2)$, and we have $f_u(u, g(u)) = f_{uu}(u_0, \mu_0)(u-u_0) + O(|u - u_0|^2)$ so that the sign of $f_{uu}(u_0, \mu_0)(u-u_0)$ decides on the stability of the equilibrium at $(u, \mu) = (u, g(u))$
+
+\end{document}
